@@ -1,8 +1,9 @@
 import "./App.css";
 import { useState } from "react";
-// import vInside from "./assets/vInside.png";
-// import vCover from "./assets/vCover.png";
-// import vBack from "./assets/vBack.png";
+import vInside from "./assets/vInside.png";
+import vInsideBlank from "./assets/vInsideBlank.png";
+import vCover from "./assets/vCover.png";
+import vBack from "./assets/vBack.png";
 // import hInside from "./assets/hInside.png";
 // import hCover from "./assets/hCover.png";
 // import hBack from "./assets/hBack.png";
@@ -14,7 +15,6 @@ function App() {
 	function nextPerspective() {
 		setPerspective((prevState) => {
 			setPreviousPerspective(prevState);
-
 			return prevState === 2 ? 0 : prevState + 1;
 		});
 	}
@@ -31,23 +31,15 @@ function App() {
 				className={`card perspective${perspective} ${
 					isTransitioningFrom2to0 ? "from-perspective2" : ""
 				}`}>
-				<div style={{ backgroundColor: "steelblue" }} className="front">
-					Cover
-				</div>
-				<div style={{ backgroundColor: "green" }} className="back">
-					Left Inside
-				</div>
+				<img src={vCover} className="front" />
+				<img src={vInsideBlank} className="back" />
 			</div>
 			<div
 				className={`backCard card perspective${perspective} ${
 					isTransitioningFrom2to0 ? "from-perspective2" : ""
 				}`}>
-				<div style={{ backgroundColor: "tomato" }} className="front">
-					Right Inside
-				</div>
-				<div style={{ backgroundColor: "goldenrod" }} className="back">
-					Back
-				</div>
+				<img src={vInside} className="front" />
+				<img src={vBack} className="back" />
 			</div>
 		</div>
 	);
