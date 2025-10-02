@@ -23,7 +23,6 @@ function App() {
 
 	return (
 		<div className="container">
-			{/* <div className="container"> */}
 			<p>Perspective: {perspective}</p>
 			<button onClick={nextPerspective}>Next</button>
 			<br></br>
