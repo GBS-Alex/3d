@@ -24,8 +24,9 @@ function App() {
 	return (
 		<div>
 			<p>Perspective: {perspective}</p>
-			<button onClick={nextPerspective}>Next</button>
-			<br></br>
+			<button style={{ marginBottom: "20px" }} onClick={nextPerspective}>
+				Next
+			</button>
 			<div className="container">
 				<div
 					className={`frontCard card perspective${perspective} ${

@@ -1,10 +1,6 @@
 @keyframes mainCard2to0 {
 	0% {
-		transform: rotateY(-180deg);
-		z-index: 0;
-	}
-	10% {
-		transform: rotateY(-180deg);
+		transform: rotateY(-185deg);
 		z-index: 0;
 	}
 	100% {
@@ -39,6 +35,7 @@ body {
 	justify-content: center;
 	-o-box-align: center;
 	align-items: center;
+	overflow: hidden;
 }
 .container {
 	width: 400px;
@@ -63,6 +60,11 @@ body {
 	height: 100%;
 	object-fit: cover;
 	object-position: top left;
+}
+
+.frontCard .back {
+
+	/* border: 2px solid tomato; */
 }
 
 .card {
@@ -137,6 +139,7 @@ body {
 .backCard.perspective1 {
 	transform: rotateY(0deg);
 	z-index: 0;
+
 }
 
 .backCard.perspective2 {
@@ -153,11 +156,11 @@ body {
 }
 
 .card.perspective0:not(.from-perspective2) {
-	transform: rotateY(0deg);
+	transform: rotateY(-5deg);
 	z-index: 2;
 }
 
 .backCard.perspective0:not(.from-perspective2) {
-	transform: rotateY(0deg);
+	transform: rotateY(-5deg);
 	z-index: 1;
 }
