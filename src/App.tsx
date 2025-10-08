@@ -29,27 +29,23 @@ function App() {
 					className={`frontCard card perspective${perspective} ${
 						isTransitioningFrom2to0 ? "from-perspective2" : ""
 					}`}>
-					<div className="front" style={{ backgroundColor: "teal" }}>
-						Cover
+					<div className="front">
+						<img src={vCover} />
 					</div>
-					<div className="back" style={{ backgroundColor: "white" }}>
-						Left Inside
+					<div className="back">
+						<img src={vInsideBlank} />
 					</div>
-					{/* <img src={vCover} className="front" /> */}
-					{/* <img src={vInsideBlank} className="back" /> */}
 				</div>
 				<div
 					className={`backCard card perspective${perspective} ${
 						isTransitioningFrom2to0 ? "from-perspective2" : ""
 					}`}>
-					<div className="front" style={{ backgroundColor: "tomato" }}>
-						Right Inside
+					<div className="front">
+						<img src={vInside} />
 					</div>
-					<div className="back" style={{ backgroundColor: "black" }}>
-						Back
+					<div className="back">
+						<img src={vBack} />
 					</div>
-					{/* <img src={vInside} className="front" /> */}
-					{/* <img src={vBack} className="back" /> */}
 				</div>
 			</div>
 		</div>

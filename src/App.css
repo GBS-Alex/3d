@@ -1,7 +1,7 @@
 @keyframes mainCard2to0 {
 	0% {
 		transform: rotateY(-185deg);
-		z-index: 0;
+		/* z-index: 0; */
 	}
 	100% {
 		transform: rotateY(-5deg);
@@ -11,7 +11,7 @@
 @keyframes backCard2to0 {
 	0% {
 		transform: rotateY(-180deg);
-		z-index: 1;
+		/* z-index: 1; */
 	}
 
 	100% {
@@ -46,6 +46,7 @@ body {
 	-ms-perspective: 1200px;
 	perspective: 1200px;
 	perspective-origin: left;
+	transform-style: preserve-3d;
 }
 
 .frontCard {
@@ -53,6 +54,14 @@ body {
 	height: 100%;
 	object-fit: fill;
 	object-position: top left;
+}
+
+.card .front {
+	transform: translateZ(1px);
+}
+
+.card .back {
+	transform: rotateY(-180deg) translateZ(-1px);
 }
 
 .frontCard img {
@@ -66,9 +75,9 @@ body {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	transform-style: preserve-3d;
 	transition: transform .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 	transform-origin: left;
+	transform-style: preserve-3d;
 
 }
 
@@ -88,12 +97,10 @@ body {
 	-webkit-font-smoothing: antialiased;
 }
 
-.card > img {
+.card img  {
 	max-width: 100%;
 	max-height: 100%;
 	position: absolute;
-	-webkit-backface-visibility: hidden;
-	backface-visibility: hidden;
 	display: -ms-flexbox;
 	display: flex;
 	-o-box-pack: center;
@@ -104,42 +111,52 @@ body {
 	-moz-osx-font-smoothing: auto;
 	box-shadow: rgba(33, 35, 38, 0.75) 0px 10px 10px -10px;
 	outline: 1px solid transparent;
-
 }
+
 .card .back {
 	transform: rotateY(-180deg);
 }
 
-.card.perspective0 {
-	z-index: 1;
+.frontCard.perspective0 {
+	/* z-index: 1; */
 	transform: rotateY(0deg);
-	box-shadow: none;
 }
 
-.card.perspective1 {
-	z-index: 1;
+.frontCard.perspective1 {
+	/* z-index: 1; */
 	transform: rotateY(-145deg);
 }
 
-.card.perspective2 {
-	z-index: 1;
+.frontCard.perspective2 {
+	/* z-index: 1; */
 	transform: rotateY(-175deg);
 }
 
 .backCard.perspective0 {
-	z-index: 0;
-	transform: rotateY(0deg);
+	/* z-index: 0; */
+	transform: rotateY(5deg) ;
+
 }
 
 .backCard.perspective1 {
 	transform: rotateY(0deg);
-	z-index: 0;
+	/* z-index: 0; */
 }
 
+.frontCard.perspective0 .back::before {
+	content: "";
+	z-index: 2;
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(-90deg,rgba(0, 0, 0, 0.38) 0%, rgba(255, 255, 255, 0) 85%, rgba(255, 255, 255, 0) 100%);
+	filter: blur(5px);
+}
 
 .frontCard.perspective1 .back::before {
 	content: "";
-	z-index: 10;
+	z-index: 2;
 	position: absolute;
 	display: block;
 	width: 100%;
@@ -150,7 +167,7 @@ body {
 
 .frontCard.perspective2 .back::before {
 	content: "";
-	z-index: 10;
+	z-index: 2;
 	position: absolute;
 	display: block;
 	width: 100%;
@@ -159,9 +176,10 @@ body {
 	filter: blur(5px);
 }
 
+
 .backCard.perspective2 {
 	transform: rotateY(-175deg);
-	z-index: 1;
+	/* z-index: 1; */
 }
 
 .card.perspective0.from-perspective2 {
@@ -170,14 +188,4 @@ body {
 
 .backCard.perspective0.from-perspective2 {
 	animation: backCard2to0 .5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.card.perspective0:not(.from-perspective2) {
-	transform: rotateY(0deg);
-	z-index: 2;
-}
-
-.backCard.perspective0:not(.from-perspective2) {
-	transform: rotateY(0deg);
-	z-index: 1;
 }
